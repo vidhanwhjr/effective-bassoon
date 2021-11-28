@@ -48,7 +48,7 @@ function draw(){
     }    
   }
   function canvascheck(){
-     classifier = classifier.classify(canvas, gotresults);
+     classifier.classify(canvas, gotresults);
   }
   
   function gotresults(error, results){
@@ -62,4 +62,8 @@ function draw(){
           utterthis = new SpeechSynthesisUtterance(results[0].label);
           synth.speak(utterthis);
       }
+}
+
+function preload(){
+    classifier = ml5.imageClassifier('DooodleNet');
 }
